@@ -26,7 +26,13 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
-
+for feature = 1:columns(X)
+  avg = mean(X(:,feature));
+  std_dev = std(X(:,feature));
+  for row = 1:rows(X)
+    X_norm(row, feature) = (X(row, feature) - avg) / std_dev;
+  end
+end
 
 
 

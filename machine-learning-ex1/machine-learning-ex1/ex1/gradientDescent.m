@@ -17,9 +17,17 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 
+    theta_new = ones(rows(theta),1);
+    for param = 1:rows(theta)
+      total = 0;
+      for entry = 1:m
+        total += (X(entry,:) * theta - y(entry)) * X(entry,param);
+      end
+      
+      theta_new(param) = theta(param) - alpha * 1 / m * total;
+    end
 
-
-
+    theta = theta_new;
 
 
 
